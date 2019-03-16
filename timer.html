@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+        #box {
+        display:table-cell; vertical-align:middle;
+        width:300px; height:200px; text-align:center;
+        left:100%; background-color:violet; color:blue;
+        font-size: 20px;
+      }
+    </style>
+    <script>
+      function timer() {
+        var box = document.getElementById("box");
+        var now = new Date();
+        var h = now.getHours(); 
+		var min = now.getMinutes();
+        var sec = now.getSeconds();
+        var result = 0; 
+		var text = "현재 숫자가 모두 같습니다!";
+        text = text.fontcolor("black");
+		
+        if (h>12) {
+          h -=12;
+          result = "PM "+h+":";
+        }else {
+          if (h==0){
+            h+=12;
+			}
+		  result = "AM "+h+":";
+		}
+		
+        if (min<10){
+			result += ("0"+min+":");
+			}else{
+				result += (min+":");
+				}
+				
+        if (sec<10){
+			result += ("0"+sec);
+			}else{
+				result += sec;
+				}
+				
+        box.innerHTML = result;
+	    if ((h==min)&&(min==sec)) {
+					box.innerHTML += text;
+        }
+		if ((h==m)&&(m==s)) {
+          box.innerHTML += text;
+		  box.delay(30000)
+        }
+      }
+
+    </script>
+ </head>
+ <body onload="setInterval('timer()', 1000)">
+   <div id="box"></div>
+ </body>
+</html>

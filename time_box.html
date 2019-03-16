@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #box {
+        display:table-cell;
+        width:200px; height:200px; text-align:center;
+
+      }
+    </style>
+    <script>
+      function timeBox() {
+        var box = document.getElementById("box");
+        var now = new Date();
+		var year = now.getFullYear(); //년도 반환
+        var month = now.getMonth(); //월 반환. 지금 현재의 월보다 하나 작은값 반환
+		var date = now.getDate(); //일 반환
+        var day = now.getDay(); //요일반환. 0이 일요일인거 주의
+		var h = now.getHours(); //시 반환 0~23으로 반환
+        var min = now.getMinutes(); //분 반환
+		var sec = now.getSeconds(); //초 반환
+
+        var result = year+"년 "+(month+1)+"월 "+date+"일 ";
+        var days = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+        result += days[day]+"<br>";
+        if (h<12) {
+          result += "AM ";
+          if (h == 0){
+			result += ("12:");
+		}else {
+			result += (h+":");
+			}
+		}
+        else {
+          if (h == 12) {
+			result += ("PM 12:");
+			}else {
+				result += "PM "+(h-12+":");
+				}
+        }
+		
+        if (min<10) {
+		result += ("0"+min+":");
+		}else {
+			result += (min+":");
+			}
+			
+        if (sec<10){
+			result += ("0"+sec);
+			}else{
+				result += sec;
+				}
+        box.innerHTML = result;
+      }
+	  
+      function changeBg() {
+        var box = document.getElementById("box");
+        var now = new Date(); var h = now.getHours();
+        if (h>=0 && h<7){
+		box.style.backgroundColor = "red";
+		}else if (h>=7 && h<12){
+		box.style.backgroundColor = "pink"
+		}else if (h>=12 && h<14){
+		box.style.backgroundColor = "skyblue";
+		}else if (h>=14 && h<18){
+		box.style.backgroundColor = "violet";
+		}else if (h>=18 && h<=23){
+		box.style.backgroundColor = "blue";
+		}
+      }
+    </script>
+  </head>
+  <body onload = "setInterval('timeBox()', 1000);changeBg()">
+    <div id = "box"></div>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+<script type="text/javascript">
+function pstring(arrays){
+var i;
+var n=0;
+var newarray=new Array();
+var change;
+for(i=0;i<10;i++){
+		document.write(arrays[i]);
+		}
+while(n<9){
+	document.write("<br>");
+	change=arrays[0];
+	for(i=0;i<9;i++){
+		newarray[i]=arrays[i+1];
+		}
+	newarray[9]=change;
+
+	for(i=0;i<10;i++){
+		document.write(newarray[i]);
+		}
+	arrays=newarray;
+	n++;
+	}
+}
+
+var arrays= new Array();
+arrays=prompt("문자열을 입력하세요(10개)");
+pstring(arrays);
+</script>
+</body>
+</html>

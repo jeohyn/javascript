@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script type="text/javascript">
+var i, length, before, after;
+var str1="Original String : "
+var str2="Reversed String : "
+var str3="Symmetric String!";
+var str4="NOT Symmetric String!";
+var before= new Array();
+var after=new Array();
+
+before=prompt("문자열을 입력하세요");
+var result1 = str1.fontcolor("red");
+var result2 = str2.fontcolor("blue");
+var result3 = str3.fontcolor("blue");
+var result4 = str4.fontcolor("hotpink");
+document.write(result1+before);
+
+length = before.length;
+for(i=0 ; i<length ; i++)
+    after[i] = before[length-(i+1)];
+document.write("<br>"+result2);
+for(i=0;i<length;i++){
+	document.write(after[i]);
+	}
+for(i=0;i<length;i++){
+	if(before[i]!=after[i]){
+		document.write("<br><s>"+result4.fontsize("20"));
+		break;
+	}
+}
+if(i==length){
+		document.write("<br>"+result3.fontsize("20"));
+		}
+</script>
+</body>
+</html>
